@@ -17,10 +17,8 @@ In a similar way the test set have the same two first columns of the training se
 To handle this problem I used an ensemble model composed of ensemble models, basically I used four
 ![Model Description](model.png)
 
-# Results
-At the end of the competition the model obtain a score of 0.9566 in the private leaderboard
-
-__Note:__ To run the model, you need to download this reposiotory, it is necesary to have all the necesary dependencies, they can be found at the begining of the notebook, the data sets can be access from the [competition page](https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge), once they are downloaded you need to put them in a folder named __data__ at the same level that the __model__ folder and run the notebook.
+# Reproducibility
+To run the model, you need to download this reposiotory, it is necesary to have all the necesary dependencies listed in the table below, the versions have not necessary to be the same, but be aware that some package could not work well with lower versions, also this model was trained in a Ubuntu OS, therefore, you can install all the dependencies fromthe terminal, the data sets can be access from the [competition page](https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge), once they are downloaded you need to put them in a folder named __data__ at the same level that the __model__ folder and run the notebook.
 
 |       Package     |      Version      |
 |-------------------|-------------------|
@@ -32,4 +30,5 @@ __Note:__ To run the model, you need to download this reposiotory, it is necesar
 |	jupyter 	        |       5.4.0       |
 | python            |       3.6.4       |
 
-
+# Results
+At the end of the competition the model obtained a score of 0.9566 in the private leaderboard. I think that it could achieve greater results, if it was trained more times and if other strategies had been applied.
