@@ -21,7 +21,7 @@ Each class was represented in a column using binary values. In a similar way the
 
 # Model
 <p align="justify">
-I extract 5000 TF-IDF features from the text data, then I began experimented with a single model, which did not well enoght, then I elaborate another idea, since there was six binary clasess corresponding to each category, I decided to use a single classifier which will learn to recognized each one of them, then combine the results into a single model, but it turn out to be even worst than the single model, then I decided to created a ensamble model to each individual classes, but I see that the more mdels I added the more complex was the ensemble to train, so I decided to add models which where relativaly simple, and that do not have many hyperparameters to tune (since the data set is relativaly large, it could take many hours to train), that way I ended up with four main models:
+I extract 5000 TF-IDF features from the text data, then I began experimented with a single model, which did not very well enoght, then I elaborate another idea, since there was six binary clasess corresponding to each category, I decided to use a single classifier which will learn to recognized each one of them, then combine the results into a single model, but it was even worst than the single model, then I decided to created a ensamble model to each individual classes, but I see that the more mdels I added the more complex was the ensemble to train, so I decided to add models which where relativaly simple, and that do not have many hyperparameters to tune (since the data set is relativaly large, it could take many hours to train), that way I ended up with four main models:
 </p>
 
 - __AdaBoost:__ AdaBoost was prove to have less accuracy, but it achieve aceptable results, also it had no many hyperparameters to tune. Also compared with other tree models it was much faster.
@@ -30,6 +30,13 @@ I extract 5000 TF-IDF features from the text data, then I began experimented wit
 <p align = "justify">
 The next thing that I tried was use the predictions of each single model to construct features to train other model which will be the final one, and after trying with many ones, I chose CatBoost. The main reason to chose CatBoost was that I need thta my final model could be trained using hyperparameters, but at the same time I also do not wanted to have to tune many of them, another factor was that I notice that using a single model to classify each class became a binary problem, and when looked the data I notices that the classes were imbalanced, and CatBoost had a special hyperparameter to deal with that problem called <b> scale_pos_weight </b>, in fact catBoost acted like a pipe wrench, helping me to better tune the predictions of the other models, also the more epoch I gave to catBosst the better were the results, also catBoost do not was affected too much by the lower performance of the other models.
 </p>
+threat
+
+| Class | Count |
+|-------|-------|
+|   0   |159093 |
+|   1   |478    |
+
 
 All the above could be summarize in the __Figure 1__:
 
