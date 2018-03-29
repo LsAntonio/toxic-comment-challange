@@ -40,7 +40,7 @@ Also, as we can see in the <b>Figure 1</b> a 5000 TF-IDF features was used to fe
 </p>
 
 ![Model Description](model.png)
-__Figure 2:__ _Final model__
+__Figure 2:__ _Final model_
 
 
 # Reproducibility
