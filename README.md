@@ -22,19 +22,22 @@ In a similar way the test set contains the same columns, except the last one.
 I began with a single model, which did not well enoght, then I elaborate a more complex idea, because there was six clasess corresponding to each category, and since they were all binary I decided to use a single classifier to each one, then combine the results into a single model, but it turn out to be even worst that the single model, then I decided to add more models to each individual classes, but I see that the more I added the more complex was the model to train, so I decided to add models which where relativaly simple, and that do not have many hyperparameters to tune (since the data set is relativaly large, it could take many hours to train), that way I ended up with four main models:
 </p>
 
-- AdaBoost: AdaBoost was prove to be have less accuracy, but it achieve aceptable results, also it had no many hyperparameters to tune.
-- BernoulliNB (alpha: 1.0 | alpha: 0.5): Surprisiling, this simple model achieve greater results, therefore I decided to add two of them, one using alpha: 1.0 and the other with alpha: 0.5.
-- Ridge Classifier: This model is really fast, and it was very accurate, even more than the other models above.
-
+- __AdaBoost:__ AdaBoost was prove to be have less accuracy, but it achieve aceptable results, also it had no many hyperparameters to tune.
+- __BernoulliNB (alpha: 1.0 | alpha: 0.5):__ Surprisiling, this simple model achieve greater results, therefore I decided to add two of them, one using alpha: 1.0 and the other with alpha: 0.5.
+- __Ridge Classifier:__ This model is really fast, and it was very accurate, even more than the other models above.
+<p align = "justify">
 The next thing that I tried was use the predictions of each single model to construct features to train other model which will be the final one, and after trying with many ones, I chose catBoost. In fact catBoost acted like a pipe wrench, the more epoch I give catBosst the better the results were, also catBoost do not was affected by the lower performance of the models.
+</p>
 
 All the above could be summarize in the __Figure 1__:
 
 ![Models](models.png)
-__Figure 1:__ _Models_
 
-Also as we can see in the __Figure 1__ a 5000 TF-IDF features was used to feed all the models the models.
-Putting alltogheter we have the final model which is described in the __Figure 2__:
+__Figure 1:__ _Models for class k_
+
+<p align = "justify">
+Also, as we can see in the <b>Figure 1</b> a 5000 TF-IDF features was used to feed all the models. Putting alltogheter we have the final model which is described in the <b> Figure 2</b>:
+</p>
 
 ![Model Description](model.png)
 __Figure 2:__ _Final model__
