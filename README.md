@@ -21,14 +21,14 @@ Each class was represented in a column using binary values. In a similar way the
 
 # Model
 <p align="justify">
-I began with a single model, which did not well enoght, then I elaborate a more complex idea, because there was six clasess corresponding to each category, and since they were all binary I decided to use a single classifier to each one, then combine the results into a single model, but it turn out to be even worst that the single model, then I decided to add more models to each individual classes, but I see that the more I added the more complex was the model to train, so I decided to add models which where relativaly simple, and that do not have many hyperparameters to tune (since the data set is relativaly large, it could take many hours to train), that way I ended up with four main models:
+I extract 5000 TF-IDF features from the text data, then I began experimented with a single model, which did not well enoght, then I elaborate another idea, since there was six binary clasess corresponding to each category, I decided to use a single classifier which will learn to recognized each one of them, then combine the results into a single model, but it turn out to be even worst than the single model, then I decided to created a ensamble model to each individual classes, but I see that the more mdels I added the more complex was the ensemble to train, so I decided to add models which where relativaly simple, and that do not have many hyperparameters to tune (since the data set is relativaly large, it could take many hours to train), that way I ended up with four main models:
 </p>
 
-- __AdaBoost:__ AdaBoost was prove to be have less accuracy, but it achieve aceptable results, also it had no many hyperparameters to tune.
-- __BernoulliNB (alpha: 1.0 | alpha: 0.5):__ Surprisiling, this simple model achieve greater results, therefore I decided to add two of them, one using alpha: 1.0 and the other with alpha: 0.5.
-- __Ridge Classifier:__ This model is really fast, and it was very accurate, even more than the other models above.
+- __AdaBoost:__ AdaBoost was prove to have less accuracy, but it achieve aceptable results, also it had no many hyperparameters to tune. Also compared with other tree models it was much faster.
+- __BernoulliNB (alpha: 1.0 | alpha: 0.5):__ Surprising, this simple model achieved aceptable results, therefore I decided to add two of them, one using alpha: 1.0 and the other with alpha: 0.5.
+- __Ridge Classifier:__ This model was really fast, and it was very accurate too, even more than the other models above.
 <p align = "justify">
-The next thing that I tried was use the predictions of each single model to construct features to train other model which will be the final one, and after trying with many ones, I chose catBoost. In fact catBoost acted like a pipe wrench, the more epoch I give catBosst the better the results were, also catBoost do not was affected by the lower performance of the models.
+The next thing that I tried was use the predictions of each single model to construct features to train other model which will be the final one, and after trying with many ones, I chose CatBoost. The main reason to chose CatBoost was that I need thta my final model could be trained using hyperparameters, but at the same time I also do not wanted to have to tune many of them, another factor was that I notice that using a single model to classify each class became a binary problem, and when looked the data I notices that the classes were imbalanced, and CatBoost had a special hyperparameter to deal with that problem, in fact catBoost acted like a pipe wrench, helping me to better tune the predictions of the other models, also the more epoch I gave to catBosst the better were the results, also catBoost do not was affected too much by the lower performance of the other models models.
 </p>
 
 All the above could be summarize in the __Figure 1__:
@@ -38,7 +38,7 @@ All the above could be summarize in the __Figure 1__:
 __Figure 1:__ _Models for class k_
 
 <p align = "justify">
-Also, as we can see in the <b>Figure 1</b> a 5000 TF-IDF features was used to feed all the models. Putting alltogheter we have the final model which is described in the <b> Figure 2</b>:
+Also, the <b>Figure 1</b> a 5000 TF-IDF features were used to feed all the models. Putting alltogheter we have the final model which is described in the <b> Figure 2</b>:
 </p>
 
 ![Model Description](model.png)
