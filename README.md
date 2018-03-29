@@ -30,8 +30,10 @@ I extract 5000 TF-IDF features from the text data, then I began experimented wit
 <p align = "justify">
 I obtained decent results, but something was missing, in fact the models described before were not tunned, and that was something that I ironically decide to them to have, but also that means that they can not been more improved, so I decided to add another model inside the enseble, which I will tune, but I also wanted one that have not much hyperparameters to tune, and after trying with many models, I chose CatBoost.
 </p>
+<p align = "justify">
 There were two main reasons to chose CatBoost, first when I looked more clossely the data I noticed that the data set was imbalanced, for example, when analized the class thread I found the following:
 </p>
+
 | Class | Count |
 |-------|-------|
 |   0   |159093 |
