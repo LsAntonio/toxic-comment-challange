@@ -13,9 +13,11 @@ The columns in the training set are as follows:
 |------------|-------------------------------------------------------------------|
 |id          | Text id of the row                                                |
 |comment_text| This contains the text that we need to classify                   |
-|classes     | There are six columns representing the classes, each one is binary|
+|classes     | There are six: toxic, severe toxic, obscene, threat, insult and identity hate|
 
-In a similar way the test set contains the same columns, except the last one.
+<p align = "justify">
+Each class was represented in a column using binary values. In a similar way the test set contains the same columns, except the classes.
+</p>
 
 # Model
 <p align="justify">
